@@ -1,5 +1,5 @@
 const request = require("request");
-const key = "Your darksky key here";
+const key = "Your api key here";
 
 var getWeather = (lat, lng, callback) => {
     request({
@@ -8,8 +8,11 @@ var getWeather = (lat, lng, callback) => {
     }, (error, res, body) => {
         if(!error && res.statusCode === 200) {
             callback(undefined, {
+                summary: body.currently.summary,
                 temperature: body.currently.temperature,
-                apparentTemperature: body.currently.apparentTemperature});
+                apparentTemperature: body.currently.apparentTemperature,
+                daily: body.daily.summary
+            });
         } else {
             callback("Unable to fetch weather");
     }    
