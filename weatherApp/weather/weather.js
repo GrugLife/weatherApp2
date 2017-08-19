@@ -1,5 +1,5 @@
 const request = require("request");
-const key = "9c3247ea0d1596ad3ea7d8ea5c3d648f";
+const key = "Your darksky key here";
 
 var getWeather = (lat, lng, callback) => {
     request({
